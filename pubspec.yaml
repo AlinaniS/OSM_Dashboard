@@ -1,0 +1,44 @@
+name: open_dashboard
+description: A Flutter GPS tracking dashboard for ESP32 devices.
+
+publish_to: 'none' # This is a local project, not published
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.19.0 <3.0.0'
+  flutter: '>=3.32.4 <4.0.0' # Set Flutter version compatible with your project
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # MQTT client for ESP32 communication
+  mqtt_client: ^10.2.0 # Make sure this version supports minSdk 22
+
+  # Map rendering using OpenStreetMap
+  flutter_map: ^6.1.0 # Lightweight OpenStreetMap wrapper for Flutter
+  latlong2: ^0.9.0 # LatLng data structure for flutter_map markers
+  flutter_map_cancellable_tile_provider: ^1.0.0 # Improved tile loading for web
+
+  # Local database for offline storage
+  sqflite: ^2.2.5 # SQLite plugin for Flutter
+
+  # Optional: State management (Provider) for updating UI in real-time
+  provider: ^6.1.5
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.1
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/icons/
+
+  # Comments on changes made:
+  # 1. mqtt_client added for MQTT communication with ESP32
+  # 2. flutter_map and latlong2 added for OpenStreetMap rendering and GPS marker handling
+  # 3. sqflite added for local offline storage of GPS logs
+  # 4. provider added to manage state and update the map UI in real-time
+  # 5. Flutter SDK version pinned to 3.32.4 to ensure compatibility with Android 5.1.1 (minSdk 22)
