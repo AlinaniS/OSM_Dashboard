@@ -16,15 +16,25 @@ dependencies:
   mqtt_client: ^10.2.0 # Make sure this version supports minSdk 22
 
   # Map rendering using OpenStreetMap
-  flutter_map: ^6.1.0 # Lightweight OpenStreetMap wrapper for Flutter
+  flutter_map: 6.0.1 # Pinned version for Android 5.1.1 compatibility
   latlong2: ^0.9.0 # LatLng data structure for flutter_map markers
-  flutter_map_cancellable_tile_provider: ^1.0.0 # Improved tile loading for web
+  geolocator: ^9.0.2 # Version compatible with Android 5.1.1
+  permission_handler: ^10.0.0 # For handling permissions on older Android versions
+  http: ^1.1.0 # For API requests
+  speech_to_text: ^6.1.1 # For voice search functionality
+  
+  # Media playback
+  flutter_vlc_player: ^7.2.0 # VLC player integration for Android 5.1.1+
+  path_provider: ^2.0.15 # For handling media files
 
   # Local database for offline storage
   sqflite: ^2.2.5 # SQLite plugin for Flutter
 
   # Optional: State management (Provider) for updating UI in real-time
   provider: ^6.1.5
+  
+  # Logging framework
+  logging: ^1.2.0
 
 dev_dependencies:
   flutter_test:
