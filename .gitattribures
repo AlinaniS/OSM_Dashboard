@@ -1,1 +1,25 @@
 * text=auto
+# Set default behavior for all files
+* text=auto
+
+# Explicitly handle specific file types
+*.dart text
+*.py text
+*.java text
+*.swift text
+*.c text
+*.cpp text
+*.cmake text
+*.yaml text
+*.yml text
+*.json text
+*.md text
+
+# Binary files should not be modified
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.jar binary
+*.so binary
