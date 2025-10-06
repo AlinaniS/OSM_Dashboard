@@ -43,18 +43,31 @@ android {
         // MultiDex enables more than 64K methods if your dependencies are large
         multiDexEnabled = true
     }
-
     buildTypes {
-        getByName("release") {
-            // For now, use debug signing (change for production release)
+        // Debug build type → used by `flutter run`
+        getByName("debug") {
+            // No code/resource shrinking in debug
+            isMinifyEnabled = false
+            isShrinkResources = false
             signingConfig = signingConfigs.getByName("debug")
-            isMinifyEnabled = false // Disable code shrinking for simplicity
+        }
+
+        // Release build type → used by `flutter build apk --release`
+        getByName("release") {
+            // For now, still use debug signing (replace with your keystore for production)
+            signingConfig = signingConfigs.getByName("debug")
+
+            // You can enable these later if you want smaller APKs
+            isMinifyEnabled = false
+            isShrinkResources = false
+
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
         }
     }
+
 
     // Optional: if you use Flutter plugins with native Android code
     buildFeatures {
